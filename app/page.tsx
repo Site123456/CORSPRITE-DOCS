@@ -2,11 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Activity, Brain, ArrowRight } from "lucide-react";
+import { Brain, ArrowRight } from "lucide-react";
 
-// ---------------------------------------------
-// PERSONA MODULE PREVIEW
-// ---------------------------------------------
 const personaPreview = [
   {
     id: "Installation",
@@ -17,9 +14,6 @@ const personaPreview = [
   },
 ];
 
-// ---------------------------------------------
-// PAGE
-// ---------------------------------------------
 export default function Page() {
   return (
     <main
@@ -67,7 +61,7 @@ export default function Page() {
             <div
               className="
                 absolute -right-10 top-0
-                px-1.5 py-[2px] rounded-md
+                px-1.5 py-0.5 rounded-md
                 text-[9px] font-semibold
                 text-white
                 bg-white/10
@@ -98,7 +92,7 @@ export default function Page() {
             <span
               className="
                 absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100
-                bg-gradient-to-r from-transparent via-white/20 to-transparent
+                bg-linear-to-r from-transparent via-white/20 to-transparent
                 animate-[shine_1.5s_linear_infinite]
               "
             />
@@ -110,7 +104,7 @@ export default function Page() {
       <section className="relative max-w-6xl mx-auto px-6 pt-40 pb-24">
 
         {/* Title */}
-        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
           Documentation
         </h1>
 
@@ -142,7 +136,7 @@ export default function Page() {
                   className="
                     absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100
                     transition duration-300 pointer-events-none
-                    bg-gradient-to-br from-black via-black/20 to-white/10
+                    bg-linear-to-br from-black via-black/20 to-white/10
                   "
                 />
 
