@@ -21,6 +21,7 @@ const personaPreview = [
 ];
 
 export default function Page() {
+  
   return (
     <main
       className="
@@ -29,7 +30,7 @@ export default function Page() {
       "
     >
       {/* HERO */}
-      <section className="relative max-w-6xl mx-auto px-6 pb-24 pt-20">
+      <section className="relative max-w-6xl mx-auto px-6 pb-24 pt-20 bg-black/50">
 
         {/* Title */}
         <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
@@ -85,6 +86,64 @@ export default function Page() {
           })}
         </div>
       </section>
+      <section className="relative max-w-5xl mx-auto px-6 py-4">
+
+        {/* Title */}
+        <div className="mb-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
+            Current Progress
+          </h2>
+          <p className="text-sm text-gray-400 mt-1">
+            Live preview of the latest system build.
+          </p>
+        </div>
+        <div className="group relative aspect-video rounded-3xl overflow-hidden border border-white/10 bg-black shadow-[0_25px_70px_-20px_rgba(0,0,0,0.9)]">
+
+          {/* Video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/demo/Demo_sprite_generation_18_feb_2026.mp4" type="video/mp4" />
+          </video>
+
+          {/* Cinematic overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/10 via-black/25 to-transparent" />
+
+          {/* Vignette */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_85%,black_100%)] opacity-70" />
+
+          {/* Bottom UI */}
+          <div className="relative z-10 flex items-end h-full p-6">
+
+            <div className="flex items-center gap-3 px-4 py-2 rounded-full backdrop-blur-lg bg-black/40 border border-white/10 shadow-md">
+
+              {/* Live indicator */}
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-70" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
+              </span>
+
+              <span className="text-xs tracking-wide text-gray-200 font-medium">
+                Developpement Preview
+              </span>
+
+            </div>
+          </div>
+
+          {/* Hover glow frame */}
+          <div className="absolute inset-0 rounded-3xl ring-1 ring-white/5 group-hover:ring-white/20 transition duration-300" />
+
+        </div>
+
+
+
+      </section>
+
     </main>
   );
 }
