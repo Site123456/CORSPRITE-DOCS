@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer() {
+export default function FooterDef() {
   return (
     <footer className="bg-black border-t border-gray-900">
       <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-gray-400">
@@ -42,7 +42,9 @@ export default function Footer() {
             whitespace-nowrap
           "
         >
-          <div
+          <Link
+            href="/"
+            scroll={true}
             className="
               relative flex items-center px-14
             "
@@ -82,7 +84,7 @@ export default function Footer() {
               BETA
             </div>
 
-          </div>
+          </Link>
         </div>
       </div>
 

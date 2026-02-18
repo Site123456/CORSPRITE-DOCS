@@ -1,0 +1,342 @@
+[
+  {
+    "title": "Math",
+    "slug": "math",
+    "items": [
+      ["Algebra Engine","algebra-engine"],
+      ["Geometry Solver","geometry-solver"],
+      ["Calculus Core","calculus-core"],
+      ["Matrix Ops","matrix-ops"],
+      ["Vector Toolkit","vector-toolkit"],
+      ["Probability Engine","probability-engine"],
+      ["Statistics Suite","statistics-suite"],
+      ["Number Theory","number-theory"],
+      ["Equation Parser","equation-parser"],
+      ["Graph Plotter","graph-plotter"],
+      ["Symbolic Math","symbolic-math"],
+      ["Optimization Solver","optimization-solver"],
+      ["Discrete Math","discrete-math"],
+      ["Complex Numbers","complex-numbers"],
+      ["Tensor Algebra","tensor-algebra"]
+    ]
+  },
+  {
+    "title": "Logic",
+    "slug": "logic",
+    "items": [
+      ["Prolog Engine","prolog-engine"],
+      ["Constraint Solver","constraint-solver"],
+      ["Boolean Logic","boolean-logic"],
+      ["Truth Table Generator","truth-table-generator"],
+      ["Inference Engine","inference-engine"],
+      ["Rule System","rule-system"],
+      ["Pattern Matcher","pattern-matcher"],
+      ["Decision Trees","decision-trees"],
+      ["State Machine","state-machine"],
+      ["Symbolic Reasoner","symbolic-reasoner"],
+      ["Logic Puzzle Solver","logic-puzzle-solver"],
+      ["SAT Solver","sat-solver"],
+      ["Planning Engine","planning-engine"],
+      ["Causal Modeler","causal-modeler"]
+    ]
+  },
+  {
+    "title": "Physics",
+    "slug": "physics",
+    "items": [
+      ["Mechanics Engine","mechanics-engine"],
+      ["Kinematics Solver","kinematics-solver"],
+      ["Dynamics Simulator","dynamics-simulator"],
+      ["Optics Module","optics-module"],
+      ["Thermodynamics","thermodynamics"],
+      ["Quantum Tools","quantum-tools"],
+      ["Electromagnetics","electromagnetics"],
+      ["Fluid Simulation","fluid-simulation"],
+      ["Wave Engine","wave-engine"],
+      ["Particle System","particle-system"],
+      ["Astrophysics","astrophysics"],
+      ["Relativity Tools","relativity-tools"],
+      ["Energy Calculator","energy-calculator"],
+      ["Material Modeler","material-modeler"]
+    ]
+  },
+  {
+    "title": "AI",
+    "slug": "ai",
+    "items": [
+      ["Neural Core","neural-core"],
+      ["Transformer Engine","transformer-engine"],
+      ["Embedding Generator","embedding-generator"],
+      ["Classifier Suite","classifier-suite"],
+      ["Clustering Engine","clustering-engine"],
+      ["Reinforcement Agent","reinforcement-agent"],
+      ["Emotion Detection","emotion-detection"],
+      ["Intent Parser","intent-parser"],
+      ["Knowledge Graph","knowledge-graph"],
+      ["Summarizer","summarizer"],
+      ["Sentiment Engine","sentiment-engine"],
+      ["Topic Modeler","topic-modeler"],
+      ["Anomaly Detector","anomaly-detector"],
+      ["Real-Time Translation","real-time-translation"],
+      ["Chat Interface","chat-interface"]
+    ]
+  },
+  {
+    "title": "Voice",
+    "slug": "voice",
+    "items": [
+      ["Speech-to-Text","speech-to-text"],
+      ["Text-to-Speech","text-to-speech"],
+      ["Voice Activity Detection","voice-activity-detection"],
+      ["Speaker ID","speaker-id"],
+      ["Noise Suppression","noise-suppression"],
+      ["Voice Cloning","voice-cloning"],
+      ["Phoneme Mapper","phoneme-mapper"],
+      ["Accent Converter","accent-converter"],
+      ["Realtime Dictation","realtime-dictation"],
+      ["Wake Word Engine","wake-word-engine"],
+      ["Audio Normalizer","audio-normalizer"],
+      ["Pitch Shifter","pitch-shifter"]
+    ]
+  },
+  {
+    "title": "Speech",
+    "slug": "speech",
+    "items": [
+      ["Speech Parser","speech-parser"],
+      ["Dialogue Manager","dialogue-manager"],
+      ["Speech Emotion","speech-emotion"],
+      ["Speech Enhancer","speech-enhancer"],
+      ["Transcription Editor","transcription-editor"],
+      ["Phonetic Analyzer","phonetic-analyzer"],
+      ["Speech Segmenter","speech-segmenter"],
+      ["Realtime Captioning","realtime-captioning"],
+      ["Speech Synth Controls","speech-synth-controls"],
+      ["Prosody Engine","prosody-engine"]
+    ]
+  },
+  {
+    "title": "Vision",
+    "slug": "vision",
+    "items": [
+      ["Object Detection","object-detection"],
+      ["Face Recognition","face-recognition"],
+      ["Pose Estimation","pose-estimation"],
+      ["Image Classification","image-classification"],
+      ["OCR Engine","ocr-engine"],
+      ["Depth Estimation","depth-estimation"],
+      ["Scene Understanding","scene-understanding"],
+      ["Color Analyzer","color-analyzer"],
+      ["Image Segmentation","image-segmentation"],
+      ["Emotion Vision","emotion-vision"],
+      ["Barcode Scanner","barcode-scanner"],
+      ["Hand Tracking","hand-tracking"],
+      ["Gesture Recognition","gesture-recognition"]
+    ]
+  },
+  {
+    "title": "Rendering",
+    "slug": "rendering",
+    "items": [
+      ["2D Renderer","2d-renderer"],
+      ["3D Renderer","3d-renderer"],
+      ["Sprite Engine","sprite-engine"],
+      ["3D Sprite Rendering","3d-sprite-rendering"],
+      ["Lighting System","lighting-system"],
+      ["Shadow Engine","shadow-engine"],
+      ["Material Shader","material-shader"],
+      ["Particle Renderer","particle-renderer"],
+      ["Animation System","animation-system"],
+      ["Rigging Tools","rigging-tools"],
+      ["Mesh Generator","mesh-generator"],
+      ["Texture Mapper","texture-mapper"]
+    ]
+  },
+  {
+    "title": "Interaction",
+    "slug": "interaction",
+    "items": [
+      ["Touch Input","touch-input"],
+      ["Gesture Input","gesture-input"],
+      ["Voice Commands","voice-commands"],
+      ["Chat Controls","chat-controls"],
+      ["UI Events","ui-events"],
+      ["Haptics Engine","haptics-engine"],
+      ["Cursor Tracking","cursor-tracking"],
+      ["Form Parser","form-parser"],
+      ["Command Router","command-router"],
+      ["Interaction Flow","interaction-flow"],
+      ["Adaptive UI","adaptive-ui"]
+    ]
+  },
+  {
+    "title": "System",
+    "slug": "system",
+    "items": [
+      ["File Manager","file-manager"],
+      ["Process Monitor","process-monitor"],
+      ["System Info","system-info"],
+      ["Network Tools","network-tools"],
+      ["Scheduler","scheduler"],
+      ["Task Runner","task-runner"],
+      ["Event Bus","event-bus"],
+      ["Config Loader","config-loader"],
+      ["Cache Engine","cache-engine"],
+      ["Logger","logger"],
+      ["Error Reporter","error-reporter"],
+      ["Resource Tracker","resource-tracker"]
+    ]
+  },
+  {
+    "title": "Developer",
+    "slug": "developer",
+    "items": [
+      ["Code Runner","code-runner"],
+      ["Module Loader","module-loader"],
+      ["API Client","api-client"],
+      ["Debugger","debugger"],
+      ["Profiler","profiler"],
+      ["Schema Validator","schema-validator"],
+      ["Regex Engine","regex-engine"],
+      ["Package Manager","package-manager"],
+      ["Build Tools","build-tools"],
+      ["Test Runner","test-runner"],
+      ["Mock Generator","mock-generator"],
+      ["CLI Tools","cli-tools"]
+    ]
+  },
+  {
+    "title": "Utilities",
+    "slug": "utilities",
+    "items": [
+      ["Unit Converter","unit-converter"],
+      ["Time Parser","time-parser"],
+      ["Date Tools","date-tools"],
+      ["Random Generator","random-generator"],
+      ["Hasher","hasher"],
+      ["Encryptor","encryptor"],
+      ["Compressor","compressor"],
+      ["QR Generator","qr-generator"],
+      ["File Parser","file-parser"],
+      ["Template Engine","template-engine"],
+      ["Color Tools","color-tools"],
+      ["UUID Generator","uuid-generator"]
+    ]
+  },
+  {
+    "title": "Games",
+    "slug": "games",
+    "items": [
+      ["Rubiks Cube Solver","rubiks-cube-solver"],
+      ["Chess Engine","chess-engine"],
+      ["Checkers AI","checkers-ai"],
+      ["Sudoku Solver","sudoku-solver"],
+      ["Puzzle Generator","puzzle-generator"],
+      ["Trivia Engine","trivia-engine"],
+      ["Card Logic","card-logic"],
+      ["Game Physics","game-physics"],
+      ["Pathfinding","pathfinding"],
+      ["Turn Engine","turn-engine"],
+      ["Inventory System","inventory-system"],
+      ["Dialogue Trees","dialogue-trees"]
+    ]
+  },
+  {
+    "title": "Creativity",
+    "slug": "creativity",
+    "items": [
+      ["Story Generator","story-generator"],
+      ["Poetry Engine","poetry-engine"],
+      ["Music Composer","music-composer"],
+      ["Art Style Transfer","art-style-transfer"],
+      ["Idea Generator","idea-generator"],
+      ["Character Builder","character-builder"],
+      ["World Builder","world-builder"],
+      ["Name Generator","name-generator"],
+      ["Concept Sketcher","concept-sketcher"],
+      ["Mood Board","mood-board"],
+      ["Scene Writer","scene-writer"]
+    ]
+  },
+  {
+    "title": "Robotics",
+    "slug": "robotics",
+    "items": [
+      ["Motion Planner","motion-planner"],
+      ["Inverse Kinematics","inverse-kinematics"],
+      ["Robot Vision","robot-vision"],
+      ["Gripper Control","gripper-control"],
+      ["Path Controller","path-controller"],
+      ["Sensor Fusion","sensor-fusion"],
+      ["SLAM Engine","slam-engine"],
+      ["Motor Driver","motor-driver"],
+      ["Robot Mapping","robot-mapping"],
+      ["Navigation Core","navigation-core"],
+      ["Actuator Manager","actuator-manager"]
+    ]
+  },
+  {
+    "title": "Smart Home",
+    "slug": "smart-home",
+    "items": [
+      ["Device Hub","device-hub"],
+      ["Light Control","light-control"],
+      ["Climate Control","climate-control"],
+      ["Security Monitor","security-monitor"],
+      ["Energy Tracker","energy-tracker"],
+      ["Appliance Control","appliance-control"],
+      ["Door Access","door-access"],
+      ["Camera Hub","camera-hub"],
+      ["Automation Rules","automation-rules"],
+      ["Presence Detection","presence-detection"]
+    ]
+  },
+  {
+    "title": "Education",
+    "slug": "education",
+    "items": [
+      ["Flashcards","flashcards"],
+      ["Quiz Engine","quiz-engine"],
+      ["Lesson Planner","lesson-planner"],
+      ["Tutor Mode","tutor-mode"],
+      ["Reading Assistant","reading-assistant"],
+      ["Math Tutor","math-tutor"],
+      ["Science Tutor","science-tutor"],
+      ["Language Coach","language-coach"],
+      ["Exam Generator","exam-generator"],
+      ["Progress Tracker","progress-tracker"]
+    ]
+  },
+  {
+    "title": "Fun",
+    "slug": "fun",
+    "items": [
+      ["Joke Generator","joke-generator"],
+      ["Meme Maker","meme-maker"],
+      ["Nickname Generator","nickname-generator"],
+      ["Fun Facts","fun-facts"],
+      ["Riddle Engine","riddle-engine"],
+      ["Emoji Mixer","emoji-mixer"],
+      ["Fortune Teller","fortune-teller"],
+      ["Mini Games","mini-games"],
+      ["Soundboard","soundboard"],
+      ["Avatar Maker","avatar-maker"]
+    ]
+  },
+  {
+    "title": "Memory",
+    "slug": "memory",
+    "items": [
+      ["Short-Term Store","short-term-store"],
+      ["Long-Term Store","long-term-store"],
+      ["Context Recall","context-recall"],
+      ["Preference Manager","preference-manager"],
+      ["Session Memory","session-memory"],
+      ["Knowledge Cache","knowledge-cache"],
+      ["Profile Builder","profile-builder"],
+      ["History Tracker","history-tracker"],
+      ["Memory Inspector","memory-inspector"],
+      ["Memory Cleaner","memory-cleaner"]
+    ]
+  }
+]
