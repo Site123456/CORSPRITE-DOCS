@@ -23,18 +23,25 @@ const personaPreview = [
 ];
 const cardsData = [
   {
+    title: "60 Hz Fine-Tuner",
+    description: "TenserFlow based Fine tuner for 60Hz Audio.",
+    videoSrc: "/demo/audigeneration49finetuned.mp4",
+    latestdate: "19 Feb 2026",
+    notFinished: "Alpha"
+  },
+  {
     title: "Sprite Generation",
     description: "Sprite generation made with Python & C++ rendering.",
     videoSrc: "/demo/Demo_sprite_generation_18_feb_2026.mp4",
     latestdate: "18 Feb 2026",
-    notFinished: "Version 0.1"
+    notFinished: "Alpha"
   },
   {
     title: "Audio Generation",
-    description: "Audio generation with text, need some fine-tuning.",
+    description: "Python & JS Audio generation based on seed.",
     videoSrc: "/demo/audigeneration49params.mp4",
     latestdate: "18 Feb 2026",
-    notFinished: "Version 0.1"
+    notFinished: "Alpha"
   }
 ];
 function FeaturesSection() {
