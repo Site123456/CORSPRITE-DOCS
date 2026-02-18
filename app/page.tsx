@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+
 
 import Link from "next/link";
 import { Download, Boxes, ArrowRight } from "lucide-react";
@@ -19,6 +21,113 @@ const personaPreview = [
     link: "/modules",
   }
 ];
+const cardsData = [
+  {
+    title: "Sprite Generation",
+    description: "Sprite generation made with Python & C++ rendering.",
+    videoSrc: "/demo/Demo_sprite_generation_18_feb_2026.mp4",
+    latestdate: "18 Feb 2026",
+    notFinished: "Version 0.1"
+  },
+  {
+    title: "Audio Generation",
+    description: "Audio generation with text, need some fine-tuning.",
+    videoSrc: "/demo/audigeneration49params.mp4",
+    latestdate: "18 Feb 2026",
+    notFinished: "Version 0.1"
+  }
+];
+function FeaturesSection() {
+  const [searchName, setSearchName] = useState<string>("");
+
+  // Filtered cards
+  const filteredCards = cardsData.filter((card) => {
+    const matchesName = card.title.toLowerCase().includes(searchName.toLowerCase());
+    return matchesName;
+  });
+
+  return (
+    <section className="relative max-w-5xl mx-auto px-6 py-4">
+
+      {/* Title */}
+      <div className="w-full flex flex-col sm:flex-row sm:justify-center sm:items-center gap-4 mb-6">
+        <div className="mb-6 w-full">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
+            System Builds
+          </h2>
+          <p className="text-sm text-gray-400 mt-1">
+            Status preview of the latest system build.
+          </p>
+        </div>
+
+      {/* Filter Controls */}
+        <input
+          type="text"
+          placeholder="Filter by name..."
+          className="px-3 py-2 text-ellipsis rounded-3xl border-4 border-white/10 bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          value={searchName}
+          onChange={(e) => setSearchName(e.target.value)}
+        />
+      </div>
+
+      {/* Card Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {filteredCards.length > 0 ? (
+          filteredCards.map((card, index) => (
+            <div
+              key={index}
+              className="group relative rounded-3xl overflow-hidden border-2 border-white/10 bg-black shadow-lg shadow-black/80"
+            >
+              <div className="relative aspect-video w-full overflow-hidden">
+                <video
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src={card.videoSrc}
+                  controls
+                />
+                <div className="absolute top-2 right-2">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/20 shadow-sm">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
+                    </span>
+                    <span className="text-[10px] font-medium text-gray-200 tracking-wide">
+                      Update - {card.latestdate}
+                    </span>
+                  </div>
+                </div>
+                {card.notFinished && (
+                  <div className="absolute top-12 right-2">
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/20 shadow-sm">
+                      <span className="relative flex h-2.5 w-2.5">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-70" />
+                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
+                      </span>
+                      <span className="text-xs font-medium tracking-wide">
+                        {card.notFinished}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="p-4 space-y-2">
+                <h1 className="text-lg font-bold text-gray-100 tracking-tight">
+                  {card.title}
+                </h1>
+                <p className="text-sm text-gray-400">{card.description}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="col-span-full text-center text-gray-400">
+            No features match your filters.
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
 
 export default function Page() {
   
@@ -86,64 +195,7 @@ export default function Page() {
           })}
         </div>
       </section>
-      <section className="relative max-w-5xl mx-auto px-6 py-4">
-
-        {/* Title */}
-        <div className="mb-6">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
-            Current Progress
-          </h2>
-          <p className="text-sm text-gray-400 mt-1">
-            Live preview of the latest system build.
-          </p>
-        </div>
-        <div className="group relative aspect-video rounded-3xl overflow-hidden border border-white/10 bg-black shadow-[0_25px_70px_-20px_rgba(0,0,0,0.9)]">
-
-          {/* Video */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/demo/Demo_sprite_generation_18_feb_2026.mp4" type="video/mp4" />
-          </video>
-
-          {/* Cinematic overlay */}
-          <div className="absolute inset-0 bg-linear-to-t from-black/10 via-black/25 to-transparent" />
-
-          {/* Vignette */}
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_85%,black_100%)] opacity-70" />
-
-          {/* Bottom UI */}
-          <div className="relative z-10 flex items-end h-full p-6">
-
-            <div className="flex items-center gap-3 px-4 py-2 rounded-full backdrop-blur-lg bg-black/40 border border-white/10 shadow-md">
-
-              {/* Live indicator */}
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-70" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
-              </span>
-
-              <span className="text-xs tracking-wide text-gray-200 font-medium">
-                Developpement Preview
-              </span>
-
-            </div>
-          </div>
-
-          {/* Hover glow frame */}
-          <div className="absolute inset-0 rounded-3xl ring-1 ring-white/5 group-hover:ring-white/20 transition duration-300" />
-
-        </div>
-
-
-
-      </section>
-
+      <FeaturesSection />
     </main>
   );
 }
