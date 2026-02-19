@@ -1,208 +1,310 @@
 "use client";
-import { useState } from "react";
 
-
+import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Download, Boxes, ArrowRight } from "lucide-react";
+import { Download, Boxes, ArrowRight, Search, LucideIcon } from "lucide-react";
 
-const personaPreview = [
-{
-    id: "Installation",
+type Status = "Alpha" | "Beta" | "Stable";
+
+type BuildCard = {
+  title: string;
+  description: string;
+  videoSrc: string;
+  date: string;
+  version: string;
+  status: Status;
+  tags: string[];
+};
+
+type NavCard = {
+  id: string;
+  title: string;
+  description: string;
+  link: string;
+  icon: LucideIcon;
+};
+
+const navCards: NavCard[] = [
+  {
+    id: "install",
     title: "Get Started",
-    icon: Download,
-    description: "Install CORSPRITE and start exploring the beta in minutes.",
+    description: "Install CORSPRITE and start exploring.",
     link: "https://github.com/Site123456/CORSPRITE",
+    icon: Download,
   },
   {
-    id: "Modules",
+    id: "modules",
     title: "Core Modules",
-    icon: Boxes,
-    description: "Discover built-in tools and modular features that power CORSPRITE.",
+    description: "Browse built-in system components.",
     link: "/modules",
-  }
+    icon: Boxes,
+  },
 ];
-const cardsData = [
+
+const builds: BuildCard[] = [
   {
     title: "60 Hz Fine-Tuner",
-    description: "TenserFlow based Fine tuner for 60Hz Audio.",
+    description: "Real-time wav frequency tuning engine.",
     videoSrc: "/demo/audigeneration49finetuned.mp4",
-    latestdate: "18 Feb 2026",
-    notFinished: "Alpha"
+    date: "2026-02-19",
+    version: "0.1.0",
+    status: "Beta",
+    tags: ["Audio", "DSP"],
   },
   {
     title: "Sprite Generation",
-    description: "Sprite generation made with Python & C++ rendering.",
+    description: "Procedural sprite renderer.",
     videoSrc: "/demo/Demo_sprite_generation_18_feb_2026.mp4",
-    latestdate: "18 Feb 2026",
-    notFinished: "Alpha"
+    date: "2026-02-18",
+    version: "0.0.9",
+    status: "Beta",
+    tags: ["Graphics"],
   },
   {
     title: "Audio Generation",
-    description: "Python & JS Audio generation based on seed.",
+    description: "Seed-based synthesis engine.",
     videoSrc: "/demo/audigeneration49params.mp4",
-    latestdate: "18 Feb 2026",
-    notFinished: "Alpha"
-  }
+    date: "2026-02-18",
+    version: "0.0.8",
+    status: "Alpha",
+    tags: ["Audio", "AI"],
+  },
 ];
-function FeaturesSection() {
-  const [searchName, setSearchName] = useState<string>("");
 
-  // Filtered cards
-  const filteredCards = cardsData.filter((card) => {
-    const matchesName = card.title.toLowerCase().includes(searchName.toLowerCase());
-    return matchesName;
-  });
+
+const statusColor: Record<Status, string> = {
+  Alpha: "bg-cyan-400",
+  Beta: "bg-amber-400",
+  Stable: "bg-emerald-400",
+};
+
+function LazyVideo({ src }: { src: string }) {
+  const ref = useRef<HTMLVideoElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="relative max-w-5xl mx-auto px-6 py-4">
+    <video
+      ref={ref}
+      muted
+      loop
+      controls
+      playsInline
+      preload="none"
+      poster="/logo/logo.png"
+      className="absolute inset-0 w-full h-full object-cover"
+    >
+      {visible && <source src={src} />}
+    </video>
+  );
+}
 
-      {/* Title */}
-      <div className="w-full flex flex-col sm:flex-row sm:justify-center sm:items-center gap-4 mb-6">
-        <div className="mb-6 w-full">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
-            System Builds
-          </h2>
-          <p className="text-sm text-gray-400 mt-1">
-            Status preview of the latest system build.
-          </p>
+/* ---------------- BUILD CARD ---------------- */
+
+function BuildCardView({ card }: { card: BuildCard }) {
+  return (
+    <div className="group rounded-3xl border border-white/10 bg-linear-to-b from-white/5 to-transparent overflow-hidden transition hover:-translate-y-2 hover:shadow-2xl">
+
+      <div className="relative aspect-video">
+
+        <LazyVideo src={card.videoSrc} />
+
+        <div className="absolute top-3 right-3 rounded-full bg-black/60 border border-white/15 px-3 py-1 text-xs backdrop-blur">
+          {new Date(card.date).toLocaleDateString()}
         </div>
 
-      {/* Filter Controls */}
-        <input
-          type="text"
-          placeholder="Filter by name..."
-          className="px-3 py-2 text-ellipsis rounded-3xl border-4 border-white/10 bg-black text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          value={searchName}
-          onChange={(e) => setSearchName(e.target.value)}
-        />
+        <div className="absolute top-12 right-3 flex items-center gap-2 rounded-full bg-black/60 border border-white/15 px-3 py-1 text-xs backdrop-blur">
+          <span className={`h-2 w-2 rounded-full ${statusColor[card.status]}`} />
+          {card.status}
+        </div>
       </div>
 
-      {/* Card Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {filteredCards.length > 0 ? (
-          filteredCards.map((card, index) => (
-            <div
-              key={index}
-              className="group relative rounded-3xl overflow-hidden border-2 border-white/10 bg-black shadow-lg shadow-black/80"
+      <div className="p-5 space-y-3">
+
+        <div className="flex justify-between items-center">
+          <h3 className="font-semibold text-lg">{card.title}</h3>
+          <span className="text-xs text-gray-400">v{card.version}</span>
+        </div>
+
+        <p className="text-sm text-gray-400">{card.description}</p>
+
+        <div className="flex flex-wrap gap-2">
+          {card.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2 py-0.5 text-xs rounded-full border border-white/10 bg-white/5 text-gray-300"
             >
-              <div className="relative aspect-video w-full overflow-hidden">
-                <video
-                  playsInline
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  src={card.videoSrc}
-                  controls
-                />
-                <div className="absolute top-2 right-2">
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/20 shadow-sm">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
-                    </span>
-                    <span className="text-[10px] font-medium text-gray-200 tracking-wide">
-                      Update - {card.latestdate}
-                    </span>
-                  </div>
-                </div>
-                {card.notFinished && (
-                  <div className="absolute top-12 right-2">
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/20 shadow-sm">
-                      <span className="relative flex h-2.5 w-2.5">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-70" />
-                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
-                      </span>
-                      <span className="text-xs font-medium tracking-wide">
-                        {card.notFinished}
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-4 space-y-2">
-                <h1 className="text-lg font-bold text-gray-100 tracking-tight">
-                  {card.title}
-                </h1>
-                <p className="text-sm text-gray-400">{card.description}</p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="col-span-full text-center text-gray-400">
-            No features match your filters.
-          </p>
-        )}
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
+    </div>
+  );
+}
+
+/* ---------------- FEATURES SECTION ---------------- */
+
+function FeaturesSection() {
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState<"new" | "old">("new");
+  const [tag, setTag] = useState("All");
+
+  const tags = ["All", ...Array.from(new Set(builds.flatMap((b) => b.tags)))];
+
+  const filtered = useMemo(() => {
+    let list = builds.filter((b) =>
+      b.title.toLowerCase().includes(search.toLowerCase())
+    );
+
+    if (tag !== "All") list = list.filter((b) => b.tags.includes(tag));
+
+    list.sort((a, b) =>
+      sort === "new"
+        ? +new Date(b.date) - +new Date(a.date)
+        : +new Date(a.date) - +new Date(b.date)
+    );
+
+    return list;
+  }, [search, sort, tag]);
+
+  return (
+    <section className="max-w-5xl mx-auto px-6 py-20">
+
+      {/* header */}
+      <div className="mb-10 space-y-6">
+
+        <div className="flex flex-wrap justify-between items-end gap-6">
+          <div>
+            <h2 className="text-3xl font-semibold">System Builds</h2>
+            <p className="text-gray-400 mt-1">Latest modules and previews</p>
+          </div>
+
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search builds..."
+              className="pl-10 pr-4 py-2 rounded-full bg-black/60 border border-white/15 text-sm outline-none focus:border-cyan-400"
+            />
+          </div>
+        </div>
+
+        {/* filters */}
+        <div className="flex flex-wrap gap-3 items-center">
+
+          {tags.map((t) => (
+            <button
+              key={t}
+              onClick={() => setTag(t)}
+              className={`px-3 py-1 rounded-full text-xs border transition
+                ${
+                  tag === t
+                    ? "bg-white text-black border-white"
+                    : "border-white/15 text-gray-300 hover:border-white/40"
+                }`}
+            >
+              {t}
+            </button>
+          ))}
+
+          <select
+            aria-label="Sort builds"
+            value={sort}
+            onChange={(e) => setSort(e.target.value as "new" | "old")}
+            className="ml-auto px-6 py-2 rounded-full text-xs bg-black border border-white/15"
+          >
+            <option value="new">Newest</option>
+            <option value="old">Oldest</option>
+          </select>
+        </div>
+      </div>
+
+      {/* grid */}
+      {filtered.length ? (
+        <div className="grid sm:grid-cols-2 gap-7">
+          {filtered.map((card) => (
+            <BuildCardView key={card.title} card={card} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-center text-gray-500">No builds found.</p>
+      )}
     </section>
   );
 }
 
-export default function Page() {
-  
-  return (
-    <main
-      className="
-        bg-black text-white
-        transition-colors duration-300
-      "
-    >
-      {/* HERO */}
-      <section className="relative max-w-6xl mx-auto px-6 pb-24 pt-20 bg-black/50">
+/* ---------------- PAGE ---------------- */
 
-        {/* Title */}
-        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
+export default function Page() {
+  return (
+    <main className="min-h-screen bg-black text-white">
+
+      {/* HERO */}
+      <section className="max-w-6xl mx-auto px-6 pt-24 pb-24">
+
+        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-linear-to-r from-white to-gray-500 text-transparent bg-clip-text">
           Documentation
         </h1>
 
-        {/* Subtitle */}
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-400">
-          CORSPRITE — a interactive and modular assistant.
+        <p className="mt-6 text-lg text-gray-400 max-w-xl">
+          CORSPRITE — interactive modular assistant platform.
         </p>
 
-        {/* GRID */}
-        <div className="grid sm:grid-cols-2 gap-7 mt-16">
-          {personaPreview.map((mod) => {
-            const Icon = mod.icon;
+        {/* NAV CARDS */}
+        <div className="grid sm:grid-cols-2 gap-8 mt-16">
+          {navCards.map((item) => {
+            const Icon = item.icon;
+
             return (
               <Link
-                key={mod.id}
-                href={mod.link}
-                className="
-                  group relative rounded-3xl p-7 flex flex-col gap-5
-                  bg-[#050505]/60
-                  backdrop-blur
-                  transition-all duration-300
-                  hover:-translate-y-2 hover:border-white/10
-                  hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.9)]
-                "
+                key={item.id}
+                href={item.link}
+                className="group relative rounded-3xl p-7 flex flex-col gap-5 bg-[#050505]/60 backdrop-blur transition-all duration-300 hover:border-white/10 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.9)]"
               >
-                <div
-                  className="
-                    absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100
-                    transition duration-300 pointer-events-none
-                    bg-linear-to-br from-black via-black/20 to-white/10
-                  "
-                />
-                <div className="flex items-center gap-3 relative z-10">
-                  <div className="p-2 rounded-lg bg-white/5 group-hover:bg-white/10 transition">
-                    <Icon className="w-5 h-5 text-gray-400 group-hover:text-white transition" />
+                <div className="absolute inset-0 rounded-3xl z-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none bg-linear-to-br from-transparent via-black/20 to-black "></div>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-white/5 group-hover:bg-white/10">
+                    <Icon className="h-5 w-5 text-gray-400 group-hover:text-white" />
                   </div>
-                  <span className="text-lg font-semibold tracking-tight">
-                    {mod.title}
-                  </span>
+                  <span className="text-lg font-semibold">{item.title}</span>
                 </div>
-                <p className="text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition relative z-10">
-                  {mod.description}
+
+                <p className="text-sm text-gray-400 group-hover:text-gray-300">
+                  {item.description}
                 </p>
-                <span className="mt-auto flex items-center gap-1 text-sm font-medium text-cyan-400 group-hover:text-cyan-300 transition relative z-10">
+
+                <span className="mt-auto flex items-center gap-1 text-sm font-medium text-cyan-400">
                   Explore
-                  <ArrowRight className="w-4 h-4 transition group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </Link>
             );
           })}
         </div>
+
       </section>
+
       <FeaturesSection />
+
     </main>
   );
 }
