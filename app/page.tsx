@@ -26,7 +26,7 @@ const cardsData = [
     title: "60 Hz Fine-Tuner",
     description: "TenserFlow based Fine tuner for 60Hz Audio.",
     videoSrc: "/demo/audigeneration49finetuned.mp4",
-    latestdate: "19 Feb 2026",
+    latestdate: "18 Feb 2026",
     notFinished: "Alpha"
   },
   {
