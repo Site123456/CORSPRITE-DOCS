@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Download, Boxes, ArrowRight, LucideIcon } from "lucide-react";
 import Image from "next/image";
+import BetaCountdown from "@/components/RealeasedateCounter";
 type NavCard = {
   id: string;
   title: string;
@@ -34,7 +35,7 @@ export default function Page() {
         <Image
           width={3000}
           height={2000}
-          src="/logo/bannerplaytrailer.jpg"
+          src="/logo/banner_main.jpg"
           alt="Trailer for current version"
           className="
             w-full h-full object-cover 
@@ -43,11 +44,8 @@ export default function Page() {
           "
         />
       </div>
-      <section className="max-w-6xl mx-auto px-6 pt-24 pb-24">
-        <div className="bg-red-400/10 border-l-8 border-red-600 rounded text-white p-4 mb-6" role="alert">
-          <p className="font-bold">Alpha phase access restricted!</p>
-          <p>Corsprite Beta Phase will start in: July 1, 2026 UTC+1 00:00.</p>
-        </div>
+      <section className="max-w-6xl mx-auto px-6 pb-24">
+          <BetaCountdown />
         <h1 className="w-full text-center text-4xl sm:text-7xl font-bold tracking-tight bg-linear-to-r from-white to-gray-500 text-transparent bg-clip-text">
           Documentation
         </h1>
