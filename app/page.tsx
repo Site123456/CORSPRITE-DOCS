@@ -69,10 +69,9 @@ export default function Page() {
                 className="
                   group relative rounded-3xl p-7 flex flex-col gap-5
                   bg-background/60 backdrop-blur-xl
-                  border-4 border-transparent
-                  shadow-lg shadow-black/5 dark:shadow-black/40
+                  border-4 border-blue-700/5
                   transition-all duration-300
-                  hover:-translate-y-1 hover:shadow-xl hover:border-blue-700/10
+                  hover:-translate-y-1 hover:shadow-xl hover:border-indigo-700/20
                 "
               >
                 <div className="flex items-center gap-3">
