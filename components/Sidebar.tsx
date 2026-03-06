@@ -99,7 +99,7 @@ export function SidebarGroup({
       <div
         className={`ml-8 mt-1 flex flex-col gap-1 overflow-hidden text-[11px] transition-all duration-250
         ${dark ? "text-neutral-400" : "text-neutral-600"}
-        ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
+        ${open ? "opacity-100" : "max-h-0 opacity-0"}`}
       >
         {children}
       </div>

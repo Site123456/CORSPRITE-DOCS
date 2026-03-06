@@ -37,19 +37,10 @@ export default function BetaCountdown() {
 
   return (
     <div
-      className="
-        my-10 px-6 py-5 rounded-xl border-l-8 border-red-600
-        bg-red-500/10 backdrop-blur-md
-        shadow-[0_0_30px_-8px_rgba(255,0,0,0.35)]
-        transition-all duration-300
-        max-w-4xl mx-auto
-      "
       role="alert"
     >
 
       {timeLeft ? (
-        <p className="text-sm md:text-lg lg:text-xl opacity-90 leading-relaxed">
-          Beta in:
           <span
             className="
               font-mono font-bold tracking-tight ml-2
@@ -58,7 +49,6 @@ export default function BetaCountdown() {
           >
             {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
           </span>
-        </p>
       ) : (
         <p className="font-mono text-base md:text-lg lg:text-xl mt-1">
           Beta Phase should be live soon! Stay tuned for updates.
