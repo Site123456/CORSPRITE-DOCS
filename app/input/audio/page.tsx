@@ -38,7 +38,7 @@ export default function Page() {
 
           <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-5 py-1.5 text-sm backdrop-blur-md font-medium">
             <Cpu size={16} />
-            Real-Time & Optimised
+            Real-Time
           </div>
 
           <div className="flex items-center gap-4">
