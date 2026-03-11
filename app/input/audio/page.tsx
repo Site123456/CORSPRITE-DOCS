@@ -49,7 +49,7 @@ export default function Page() {
           </div>
 
           <p className="text-lg sm:text-xl opacity-90 leading-relaxed max-w-2xl">
-            Outputs a realtime MP3 stream (1s–10min delay) and a JSON payload
+            Outputs a realtime MP3 stream (1s-10min delay) and a JSON payload
             containing pitch, tone, descriptors, and other voice metrics.
             Data is automatically deleted after ~20 minutes or at the next session launch.
           </p>
