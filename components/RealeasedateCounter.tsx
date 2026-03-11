@@ -37,29 +37,10 @@ export default function BetaCountdown() {
 
   return (
     <div
-<<<<<<< HEAD
       role="alert"
     >
 
       {timeLeft ? (
-=======
-      className="
-        my-10 px-6 py-5 rounded-xl border-l-8 border-red-600
-        bg-red-500/10 text-red-100 backdrop-blur-md
-        shadow-[0_0_30px_-8px_rgba(255,0,0,0.35)]
-        transition-all duration-300
-        max-w-4xl mx-auto
-      "
-      role="alert"
-    >
-      <p className="font-semibold text-lg md:text-xl lg:text-2xl tracking-wide mb-2">
-        Access restricted
-      </p>
-
-      {timeLeft ? (
-        <p className="text-sm md:text-lg lg:text-xl opacity-90 leading-relaxed">
-          Beta will start in:
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
           <span
             className="
               font-mono font-bold tracking-tight ml-2
@@ -68,10 +49,6 @@ export default function BetaCountdown() {
           >
             {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
           </span>
-<<<<<<< HEAD
-=======
-        </p>
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
       ) : (
         <p className="font-mono text-base md:text-lg lg:text-xl mt-1">
           Beta Phase should be live soon! Stay tuned for updates.
@@ -79,8 +56,4 @@ export default function BetaCountdown() {
       )}
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565

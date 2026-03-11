@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "corsprite_dashboard",
-=======
-  "name": "dev",
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@react-three/drei": "^10.7.7",
@@ -31,27 +26,15 @@
     "react-icons": "^5.5.0",
     "three": "^0.181.2",
     "uuid": "^13.0.0"
-=======
-    "lucide-react": "^0.564.0",
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-markdown": "^10.1.0"
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-<<<<<<< HEAD
     "baseline-browser-mapping": "^2.10.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
-=======
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
     "tailwindcss": "^4",
     "typescript": "^5"
   }

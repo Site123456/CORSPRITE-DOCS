@@ -1,23 +1,14 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-=======
-    "target": "ES2017",
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-<<<<<<< HEAD
-=======
-    "module": "esnext",
-    "moduleResolution": "bundler",
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -40,8 +31,4 @@
     "**/*.mts"
   ],
   "exclude": ["node_modules"]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565

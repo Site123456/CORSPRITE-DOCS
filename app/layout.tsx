@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import "./globals.css";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
@@ -104,44 +103,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-=======
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import HeaderDef from "@/components/Headerdef";
-import FooterDef from "@/components/Footerdef";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "CORSPRITE",
-  description: "Your assistant reimagined",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <HeaderDef />
-        <div className="pt-20">
-          {children}
-        </div>
-        <FooterDef />
-      </body>
-    </html>
-  );
-}
->>>>>>> 345509225e392ccf080dc3a83aacc563da4c0565
