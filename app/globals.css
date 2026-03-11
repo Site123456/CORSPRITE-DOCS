@@ -6,18 +6,18 @@ a, button {
 }
 
 /* Scrollbar styling */
-.custom-scrollbar {
+.custom-scrollbar, body {
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 148, 148, 0.4) transparent;
 }
-.custom-scrollbar::-webkit-scrollbar {
+.custom-scrollbar::-webkit-scrollbar, body::-webkit-scrollbar {
   width: 6px;
 }
-.custom-scrollbar::-webkit-scrollbar-thumb {
+.custom-scrollbar::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
   background: rgba(148, 148, 148, 0.4);
   border-radius: 999px;
 }
-.custom-scrollbar::-webkit-scrollbar-track {
+.custom-scrollbar::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
   background: transparent;
 }
 

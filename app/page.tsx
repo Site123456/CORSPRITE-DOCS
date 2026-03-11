@@ -25,7 +25,7 @@ const navCards: NavCard[] = [
     id: "modules",
     title: "Core Modules",
     description: "Browse built-in system components.",
-    link: "/modules",
+    link: "/input/audio",
     icon: Boxes,
   },
 ];
@@ -94,27 +94,6 @@ export default function Page() {
           })}
         </div>
       </section>
-
-
-      <div className="mb-12 flex justify-center w-full max-w-xl z-2">
-        <div className="rounded-3xl shadow-xl p-8 w-full text-center bg-background/60 backdrop-blur-sm">
-          <h1 className="text-2xl font-bold mb-2">
-            Youtube
-          </h1>
-          <p className="text-sm text-foreground/70 mb-6">
-            Watch trailers, tutorials, ask questions in our youtube channel!
-          </p>
-
-          <Link
-            href="https://www.youtube.com/@CORSPRITE"
-            target="_blank"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
-          >
-            <PlayCircle size={18} />
-            Watch on Youtube
-          </Link>
-        </div>
-      </div>
     </main>
   );
 }

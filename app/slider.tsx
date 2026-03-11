@@ -2,29 +2,25 @@
 import React, { useState, type ReactNode, type ComponentType } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   Home,
   FolderKanban,
-  Users,
   Settings,
   HelpCircle,
   Menu,
   LogIn,
-  User,
   X,
   Check,
-  Monitor,
-  Moon,
-  Sun,
-  CreditCard,
-  Activity,
-  Puzzle,
+  Info,
   KeyRound,
   FileText,
   Bell,
   Shield,
-  Cpu,
+  Globe,
   ChevronDown,
+  PlayCircle,
+  Code2
 } from "lucide-react";
 
 import { useTheme, type Theme } from "./hooks/useTheme";
@@ -36,6 +32,109 @@ import { SidebarLink, SidebarGroup, SectionLabel } from "../components/Sidebar";
 import { SettingsSectionLabel, SettingsRow } from "../components/SettingsPanel";
 
 interface SliderProps { children?: ReactNode; }
+
+function Footer() {
+  return (
+    <footer className="text-gray-300">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-b border-gray-800/60 pb-10">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="Corsprite Logo"
+            width={68}
+            height={68}
+            className="rounded-xl shadow-lg"
+          />
+          <span className="text-xl font-bold tracking-wide text-white">Corsprite</span>
+        </div>
+        <div>
+          <p className="max-w-xl leading-relaxed text-gray-300">
+            Thank you for using <span className="font-semibold text-white">Corsprite</span>!  
+            By exploring the platform, you agree to our guidelines below for a smooth experience.
+          </p>
+          <div className="flex gap-6 pt-2">
+            <Link
+              href="https://github.com/Site123456/CORSPRITE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-4 h-12 rounded-full bg-gray-800/50 hover:bg-gray-700 transition shadow-md hover:shadow-lg hover:text-white tooltip"
+              title="GitHub"
+            >
+              <Code2 size={20} />
+              {" "}
+              Github
+            </Link>
+
+            <Link
+              href="https://youtube.com/@corsprite"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-4 h-12 rounded-full bg-gray-800/50 hover:bg-gray-700 transition shadow-md hover:shadow-lg hover:text-white tooltip"
+              title="YouTube"
+            >
+              <PlayCircle size={20} />
+              {" "}
+              Youtube
+            </Link>
+          </div>
+        </div>
+        
+      </div>
+      <div className="grid lg:grid-cols-3 gap-8 mt-12">
+        <div className="rounded-2xl shadow-md hover:shadow-lg transition">
+          <div className="flex items-center gap-2 text-white font-semibold tracking-wide mb-2">
+            <Globe size={18} />
+            <span>Server & Hosting</span>
+          </div>
+          <p className="text-gray-400 leading-relaxed">
+            Your domain points to your server’s IP or port 8080 by default.  
+            Configure DNS correctly to make your project public.  
+            Corsprite cannot fix issues caused by incorrect DNS, hosting problems, or third-party services.
+          </p>
+        </div>
+
+        <div className="rounded-2xl shadow-md hover:shadow-lg transition">
+          <div className="flex items-center gap-2 text-white font-semibold tracking-wide mb-2">
+            <Info size={18} />
+            <span>About the Platform</span>
+          </div>
+          <p className="text-gray-400 leading-relaxed">
+            Corsprite brings AI characters to life in real-time. Customize how your assistant thinks, behaves, and interacts with your app.
+          </p>
+          <p className="text-gray-400 leading-relaxed mt-2">
+            Tokens act as usage credits for AI features, with consumption based on module complexity.
+          </p>
+        </div>
+
+        <div className="rounded-2xl shadow-md hover:shadow-lg transition">
+          <div className="flex items-center gap-2 text-white font-semibold tracking-wide mb-2">
+            <KeyRound size={18} />
+            <span>Security & Responsibility</span>
+          </div>
+          <p className="text-gray-400 leading-relaxed">
+            Keep your API key private. You’re responsible for securing it.  
+            Corsprite isn’t liable for leaked or misused keys.
+          </p>
+          <p className="text-gray-400 leading-relaxed mt-2">
+            Misuse or reverse engineering is your responsibility.
+          </p>
+        </div>
+      </div>
+
+      <div className="text-center border-t border-gray-800/60 mt-12 pt-6 space-y-1">
+        <p className="text-gray-300">
+          &copy; 2026-{new Date().getFullYear()} Corsprite. All rights reserved.
+        </p>
+        <p className="text-gray-500">
+          “Corsprite” is open source. Support us by linking to{' '}
+          <a href="https://corsprite.com" className="underline hover:text-white">corsprite.com</a> in your license file.
+        </p>
+      </div>
+
+    </footer>
+  );
+}
+
 export default function Slidercomponent({ children }: SliderProps) {
   const pathname = usePathname();
   const { theme, setTheme, isDark } = useTheme();
@@ -83,7 +182,7 @@ export default function Slidercomponent({ children }: SliderProps) {
           label: "Documentation",
           icon: FileText,
           items: [
-            { href: "/", label: "All Docs" },
+            { href: "/input/audio", label: "Audio Input" },
           ],
         },
         {
@@ -181,7 +280,7 @@ export default function Slidercomponent({ children }: SliderProps) {
                   isDark ? "text-neutral-400" : "text-neutral-500"
                 }`}
               >
-                DOCS from Installation to Customization
+                DOCS for CLIENT & SERVER
               </span>
             </div>
           </div>
@@ -196,7 +295,7 @@ export default function Slidercomponent({ children }: SliderProps) {
           </button>
         </div>
 
-        {/* NAVIGATION */}
+        {/* NAV */}
         <nav className="custom-scrollbar flex-1 overflow-y-auto px-3 py-4">
           {sections.map((section, idx) => (
             <React.Fragment key={section.label}>
@@ -241,7 +340,6 @@ export default function Slidercomponent({ children }: SliderProps) {
           ))}
         </nav>
 
-        {/* SIDEBAR FOOTER */}
         <div
           className={`border-t px-4 py-3 space-y-3 ${
             isDark ? "border-white/10 bg-black/5" : "border-black/5 bg-white/80"
@@ -298,11 +396,16 @@ export default function Slidercomponent({ children }: SliderProps) {
       </header>
 
       <main
-        className={`md:ml-72 px-4 pt-20 md:px-10 md:pt-8 transition-colors
+        className={`md:ml-72 pt-20 md:pt-8 transition-colors
           ${isDark ? "bg-neutral-950" : "bg-neutral-50"}`}
         data-dark={isDark} // <- pass it as a prop for children
       >
-        {children}
+        <div className="z-1 px-4 md:px-20 ">
+          {children}
+        </div>
+        <div className="z-2 bg-black text-gray-200 px-8 py-14 mt-20 w-full rounded-t-4xl backdrop-blur-2xl">
+          <Footer />
+        </div>
       </main>
       {openPanel && (
         <div className="fixed inset-0 z-50 flex">
@@ -323,7 +426,6 @@ export default function Slidercomponent({ children }: SliderProps) {
               shadow-[0_20px_70px_rgba(0,0,0,0.75)] animate-slideInRight
             `}
           >
-            {/* Header */}
             <div
               className={`flex flex-col border-b ${
                 isDark ? "border-white/10" : "border-black/5"
@@ -371,8 +473,6 @@ export default function Slidercomponent({ children }: SliderProps) {
                 </p>
               </div>
             </div>
-
-            {/* Content */}
             <div className="custom-scrollbar h-[calc(100%-60px)] overflow-hidden px-4 py-8">
               <div
                 className="flex w-[200%] h-full transition-transform duration-500 ease-in-out will-change-transform"
@@ -381,9 +481,7 @@ export default function Slidercomponent({ children }: SliderProps) {
                     openPanel === "server" ? "translateX(-50%)" : "translateX(0)",
                 }}
               >
-                {/* settings pane */}
                 <div className="w-full space-y-6 overflow-y-auto px-4 mr-4">
-                  {/* Appearance at top */}
                   <SettingsSectionLabel label="Appearance" dark={isDark} />
                   <div
                     className={`rounded-2xl border p-3 md:p-4 shadow-sm transition-colors
@@ -441,7 +539,6 @@ export default function Slidercomponent({ children }: SliderProps) {
                       <MiniToggle dark={isDark} initialOn={false} />
                     </SettingsRow>
                   </div>
-                  {/* Security */}
                   <SettingsSectionLabel label="Security" dark={isDark} />
                   <div
                     className={`space-y-2 rounded-2xl border p-3 md:p-4 shadow-sm transition-colors ${
@@ -568,44 +665,7 @@ export default function Slidercomponent({ children }: SliderProps) {
                     )}
                   </div>
                   <p className="text-xs text-neutral-500 mt-2">
-                  By accessing or using Corsprite and its services, you acknowledge and agree 
-                  to the following terms.
-
-                  By default, your domain is configured to use your server’s IP address or port 8080. 
-                  To make your project publicly accessible, you are responsible for properly 
-                  configuring your DNS settings through your domain provider. Corsprite assumes 
-                  no liability for misconfigured domains, DNS records, hosting errors, or 
-                  third-party infrastructure issues.
-
-                  Corsprite is an interactive AI assistant engineered to feel native, responsive, 
-                  and uniquely customizable. It can render a dynamic on-screen character that 
-                  interacts with users in real time. The platform operates on a modular architecture: 
-                  “Modules” are configurable toolsets, each representing a distinct combination 
-                  of AI capabilities, logic systems, and integrated tools designed for specific 
-                  functional purposes.
-
-                  To connect your application, navigate to the Integrations section and generate 
-                  your unique API key. This key must be securely stored and integrated into your 
-                  application to enable AI functionality. Each account is issued a single API key. 
-                  API keys and tokens are separate credentials and serve different operational roles.
-
-                  Tokens are not prompts. Tokens function as usage credits required to authenticate 
-                  requests and access AI features, modules, and designated platform tools. 
-                  Token consumption may vary depending on module configuration, complexity, 
-                  and usage volume.
-
-                  © {new Date().getFullYear()} Corsprite. All rights reserved.
-
-                  API keys are confidential credentials. You are solely responsible for maintaining 
-                  their confidentiality and security. Do not share, expose, or embed them in 
-                  publicly accessible environments. Corsprite is not liable for unauthorized use, 
-                  data breaches, financial charges, or service disruptions resulting from 
-                  compromised credentials.
-
-                  Any unauthorized reproduction, reverse engineering, redistribution, or misuse 
-                  of Corsprite’s technology, modules, infrastructure, or system architecture 
-                  constitutes a violation of our Terms of Service and may result in account 
-                  suspension, termination, or legal action.
+                  &copy; 2026-{new Date().getFullYear()} Corsprite. All rights reserved.
                   </p>
                 </div>
                 <div className="w-full overflow-y-auto ml-4">

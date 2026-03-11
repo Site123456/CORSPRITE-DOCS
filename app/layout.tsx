@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import Slidercomponent from "./slider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://github.com/Site123456/CORSPRITE"),
+  metadataBase: new URL("https://corsprite.com"),
 
   title: {
     default: "Corsprite",
@@ -12,29 +12,31 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Corsprite is a general-purpose multimodal AI assistant that can render interactive characters on devices and interact using voice, text, images, videos, and files. The platform includes modular tools such as Corsprite VD for engineering and design, text-to-speech, speech-to-text, image understanding, and AI file analysis.",
+    "Corsprite is a multimodal AI platform that brings interactive on‑screen characters to life. It supports voice, text, image, video, and file interaction, and includes modular tools such as Corsprite VD for engineering, CAD assistance, PCB design, text‑to‑speech, speech‑to‑text, visual understanding, and AI‑powered file analysis.",
 
   keywords: [
     "Corsprite",
-    "AI assistant",
+    "AI assistant platform",
     "multimodal AI",
-    "voice AI assistant",
-    "AI character assistant",
+    "AI character engine",
+    "interactive AI characters",
+    "voice AI",
     "text to speech AI",
     "speech to text AI",
-    "image to text AI",
-    "AI image description",
-    "AI video analysis",
-    "AI file analysis",
-    "AI engineering tools",
-    "CAD AI",
+    "image understanding AI",
+    "video analysis AI",
+    "file analysis AI",
+    "engineering AI tools",
+    "CAD AI assistant",
     "PCB design AI",
     "Corsprite VD",
-    "interactive AI character"
+    "real‑time AI interaction",
+    "AI for developers",
+    "AI integration tools"
   ],
 
   alternates: {
-    canonical: "https://github.com/Site123456/CORSPRITE"
+    canonical: "https://corsprite.com"
   },
 
   authors: [{ name: "Corsprite" }],
@@ -54,25 +56,41 @@ export const metadata: Metadata = {
     }
   },
 
+  icons: {
+    icon: "https://docs.corsprite.com/logo.png",
+    shortcut: "https://docs.corsprite.com/logo.png",
+    apple: "https://docs.corsprite.com/logo.png"
+  },
+
   openGraph: {
-    title: "Corsprite – Multimodal AI Assistant Platform",
+    title: "Corsprite",
     description:
-      "Interact with AI through voice, text, images, videos, and files. Corsprite is a modular AI platform with tools like Corsprite VD, speech-to-text, text-to-speech, and AI visual understanding.",
+      "Corsprite enables real‑time interaction with AI through voice, text, images, videos, and files. Build intelligent characters and integrate modular tools like Corsprite VD, speech‑to‑text, text‑to‑speech, and AI visual understanding.",
     url: "https://corsprite.com",
     siteName: "Corsprite",
     type: "website",
-    locale: "en_US"
+    locale: "en_US",
+    images: [
+      {
+        url: "https://docs.corsprite.com/logo.png",
+        width: 1200,
+        height: 1200,
+        alt: "Corsprite Logo"
+      }
+    ]
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Corsprite – Multimodal AI Assistant",
+    title: "Corsprite",
     description:
-      "Corsprite is an AI platform capable of voice, text, image, video, and file interaction with modular tools like Corsprite VD."
+      "Create interactive AI characters and integrate voice, text, image, video, and file intelligence with Corsprite’s modular platform.",
+    images: ["https://docs.corsprite.com/logo.png"]
   },
 
-  category: "technology"
+  category: "assistant"
 };
+
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
