@@ -38,13 +38,13 @@ export default function Page() {
 
           <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-5 py-1.5 text-sm backdrop-blur-md font-medium">
             <Cpu size={16} />
-            Real-Time Engine
+            Optimised for Win X64
           </div>
 
           <div className="flex items-center gap-4">
             <Mic className="shrink-0" size={48} />
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
-              Audio Input Module
+              Audio Input
             </h1>
           </div>
 
